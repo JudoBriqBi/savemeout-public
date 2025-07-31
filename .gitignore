@@ -1,0 +1,23 @@
+# Ignore runtime/cache data
+/cache/
+/var/cache/
+/var/logs/
+/download/
+/upload/
+/mails/sent/
+/error500.html
+
+# Ignore archives & backups
+/prestashop.zip
+*.tar
+*.zip
+
+# Ignore Composer dependencies
+/vendor/
+
+# Ignore Node dependencies
+/node_modules/
+
+# Ignore all modules except custom ones
+/modules/*
+!/modules/custom*/  # adjust for your custom modules
