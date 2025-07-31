@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SaveMeOut - Registration</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./assets/css/main.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-5 justify-content-center align-items-center d-none d-md-flex"
+                style="border-color:rgba(111, 134, 214, 0.5);border-style: solid; border-width: 0px 1px 0px 0px;">
+                <img src="./assets/image/logo.png" style="max-width:500px;height:auto;padding: 0%;margin: 0%;" />
+            </div>
+            <div class="col">
+                <!-- Stylish Centered Navbar -->
+                <nav class="navbar navbar-light mb-0 pb-0 d-block d-md-none"
+                    style="background: transparent; padding: 15px;">
+                    <div class="container d-flex justify-content-center">
+                        <span class="navbar-brand mb-0 h1 text-white p-0" style="font-size: 2rem; font-weight: bold;">
+                            <img src="./assets/image/logo.png"
+                                style="max-width:200px;height:auto;padding: 0%;margin: 0%;" />
+                        </span>
+                    </div>
+                </nav>
+                <div class="form-container mt-0 mt-md-5">
+                    <h2>Signup</h2>
+                    <form id="registrationForm">
+
+                        <div class="mb-3">
+                            <label for="firstName" class="form-label">First Name</label>
+                            <input type="text" class="form-control" id="firstName" name="firstName"
+                                placeholder="Enter your first name" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="lastName" class="form-label">Last Name</label>
+                            <input type="text" class="form-control" id="lastName" name="lastName"
+                                placeholder="Enter your last name" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" name="email"
+                                placeholder="example@domain.com" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control pass" id="password" name="password"
+                                placeholder="Enter your password" required minlength="8"
+                                pattern="(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&]).{8,}"
+                                title="Password must be at least 8 characters long, include a letter, a number, and a special character.">
+
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="confirmPassword" class="form-label">Confirm Password</label>
+                            <input type="password" class="form-control pass" id="confirmPassword" name="confirmPassword"
+                                placeholder="Confirm your password" required>
+                        </div>
+
+                        <div id="error-message" class="error-message" style="display: none;"></div>
+
+                        <button type="submit" class="btn-submit">Register</button>
+
+                        <div class="note">
+                            Already have an account? <a href="./login.html">Login here</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script type="module" src="assets/js/signup.js"></script>
+
+
+</body>
+
+</html>

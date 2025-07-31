@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency Profile Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/main.css"> <!-- Link the same CSS as the signup page -->
+
+    <style>
+        #emptyRecord {
+            border-left: 5px solid #dc3545;
+            /* Red accent border */
+            transition: all 0.3s ease-in-out;
+        }
+
+        #emptyRecord:hover {
+            transform: scale(1.02);
+        }
+
+        .user-img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border: 3px solid #007bff;
+            padding: 3px;
+            background: #fff;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .card {
+            border-radius: 12px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container-fluid m-0 p-0">
+        <!-- Navbar -->
+        <nav class="navbar navbar-dark navbar-expand-lg mb-0"
+            style="background: rgba(255, 255, 255, 0.025); padding: 15px;">
+            <div class="container-fluid">
+                <span class="navbar-brand mb-0 h1 text-white" style="font-size: 2rem; font-weight: bold;">
+                    <img class="img-fluid" src="./assets/image/logo2.png" alt="SaveMeOut" style="max-height: 70px;">
+                    <img class="img-fluid" src="./assets/image/logo3.png" alt="SaveMeOut" style="max-height: 70px;">
+                </span>
+                <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item me-3"> <!-- Added margin-end class for spacing -->
+                            <a class="nav-link text-white" href="dashboard.html">Dashboard</a>
+                        </li>
+                        <li class="nav-item me-3"> <!-- Added margin-end class for spacing -->
+                            <a class="nav-link text-white" href="link.html">Link a Tag</a>
+                        </li>
+                        <li class="nav-item"> <!-- No margin needed for the last item -->
+                            <a class="nav-link text-white" href="backend/logout.php">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+        <div id="emptyRecord" class="card text-center shadow-sm p-4 d-none"
+            style="max-width: 500px; margin: 30px auto;">
+            <div class="card-body">
+                <h4 class="card-title text-danger"><i class="fas fa-exclamation-circle"></i> No QR Codes Found</h4>
+                <p class="card-text">You haven't linked any QR tags to your account yet.</p>
+
+                <div class="d-grid gap-2">
+                    <button id="linkTagBtnEmpty" class="btn btn-primary linkTagBtn">
+                        <i class="fas fa-link"></i> Link a New Tag
+                    </button>
+                    <button id="buyTagBtn" class="btn btn-outline-secondary">
+                        <i class="fas fa-shopping-cart"></i> Don't Have a Tag? Buy One
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="recordsContainerMain d-none m-5">
+            <div class="card" style="max-width: 500px; margin: 30px auto;">
+                <div class="d-grid gap-2">
+                    <button id="linkTagBtn" class="btn btn-primary linkTagBtn">
+                        <i class="fas fa-link"></i> Link a New Tag
+                    </button>
+                </div>
+            </div>
+            <div class="row g-4 recordsContainer">
+            </div>
+        </div>
+    </div>
+    <!-- Include Footer -->
+    <div id="footer"></div>
+
+    <!-- ALL Main SCRIPTS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/check_session.js"></script>
+    <!-- ALL Main SCRIPTS -->
+
+    <script src="./assets/js/dashboard.js"></script>
+
+</body>
+
+</html>

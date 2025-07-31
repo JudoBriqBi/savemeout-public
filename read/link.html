@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link Your Tags</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="container-fluid m-0 p-0">
+        <!-- Navbar -->
+        <nav class="navbar navbar-dark navbar-expand-lg mb-0"
+            style="background: rgba(255, 255, 255, 0.025); padding: 15px;">
+            <div class="container-fluid">
+                <span class="navbar-brand mb-0 h1 text-white" style="font-size: 2rem; font-weight: bold;">
+                    <img class="img-fluid" src="./assets/image/logo2.png" alt="SaveMeOut" style="max-height: 70px;">
+                    <img class="img-fluid" src="./assets/image/logo3.png" alt="SaveMeOut" style="max-height: 70px;">
+                </span>
+                <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item me-3"> <!-- Added margin-end class for spacing -->
+                            <a class="nav-link text-white" href="dashboard.html">Dashboard</a>
+                        </li>
+                        <li class="nav-item me-3"> <!-- Added margin-end class for spacing -->
+                            <a class="nav-link text-white" href="link.html">Link a Tag</a>
+                        </li>
+                        <li class="nav-item"> <!-- No margin needed for the last item -->
+                            <a class="nav-link text-white" href="backend/logout.php">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="form-container">
+            <h2>Link your Tag</h2>
+            <form id="linkForm">
+                <!-- Link Tag Details -->
+                <fieldset>
+                    <div class="row">
+                        <div class="col-md-12 mb-3">
+
+                            <label for="tagid" class="form-label">Tag ID</label>
+                            <input type="text" class="form-control" id="tagid" name="ta gid" placeholder="23456789"
+                                required aria-required="true" aria-label="Tag ID">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12 mb-3">
+
+                            <label for="tagpin" class="form-label">Pin</label>
+                            <input type="password" inputmode="numeric" class="form-control" id="tagpin" name="tagpin"
+                                placeholder="918354" min="100000" max="999999" required aria-required="true"
+                                aria-label="Tag Pin">
+                        </div>
+                    </div>
+                </fieldset>
+                <!-- Submit Button -->
+                <button type="submit" class="btn-submit">Submit</button>
+            </form>
+        </div>
+    </div>
+    <!-- Include Footer -->
+    <div id="footer"></div>
+    <!-- ALL Main SCRIPTS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/check_session.js"></script>
+    <!-- ALL Main SCRIPTS -->
+
+    <script src="./assets/js/link.js"></script>
+
+
+</body>
+
+</html>

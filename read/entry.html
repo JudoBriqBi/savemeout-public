@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency Profile Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="container-fluid m-0 p-0">
+        <!-- Navbar -->
+        <nav class="navbar navbar-dark navbar-expand-lg mb-0"
+            style="background: rgba(255, 255, 255, 0.025); padding: 15px;">
+            <div class="container-fluid">
+                <span class="navbar-brand mb-0 h1 text-white" style="font-size: 2rem; font-weight: bold;">
+                    <img class="img-fluid" src="./assets/image/logo2.png" alt="SaveMeOut" style="max-height: 70px;">
+                    <img class="img-fluid" src="./assets/image/logo3.png" alt="SaveMeOut" style="max-height: 70px;">
+                </span>
+                <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item me-3"> <!-- Added margin-end class for spacing -->
+                            <a class="nav-link text-white" href="dashboard.html">Dashboard</a>
+                        </li>
+                        <li class="nav-item me-3"> <!-- Added margin-end class for spacing -->
+                            <a class="nav-link text-white" href="link.html">Link a Tag</a>
+                        </li>
+                        <li class="nav-item"> <!-- No margin needed for the last item -->
+                            <a class="nav-link text-white" href="backend/logout.php">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="form-container" style="width: 80%; max-width: 700px;">
+            <!-- Tag ID Display -->
+            <h2>Emergency Profile</h2>
+            <form id="profileForm" enctype="multipart/form-data">
+                <hr>
+                </hr>
+
+                <fieldset>
+                    <legend>Tag Information</legend>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Tag ID:</label>
+                            <p id="tagIDDisplay" class="fw-bold h3"></p> <!-- Display tagID as text -->
+                            <input type="hidden" id="tagIDInput" name="tag_id">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Tag Pin:</label>
+                            <p id="tagPINDisplay" class="fw-bold h3"></p> <!-- Display tagID as text -->
+                            <input type="hidden" id="tagPINInput" name="tag_pin">
+                        </div>
+                    </div>
+                </fieldset>
+                <hr>
+                </hr>
+
+                <fieldset>
+                    <legend>Upload Profile Picture</legend>
+
+                    <div class="mb-3">
+                        <label for="userImage" class="form-label">Profile Picture</label>
+                        <input type="file" class="form-control" id="userImage" name="user_image" accept="image/*"
+                            aria-required="false">
+                        <div class="invalid-feedback">This field is required.</div>
+                    </div>
+
+                    <!-- Image Preview -->
+                    <div class="mb-3 d-none imgPreview">
+                        <!-- <label class="form-label">Preview:</label> -->
+                        <img id="imagePreview" src="#" alt="Image Preview" class="img-thumbnail"
+                            style="max-width: 150px;">
+                    </div>
+                </fieldset>
+
+
+                <hr>
+                </hr>
+
+
+                <!-- User Personal Details -->
+                <fieldset>
+                    <legend>Personal Details</legend>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="first_name" class="form-label">First Name</label>
+                            <input type="text" class="form-control cf" id="first_name" name="first_name"
+                                placeholder="e.g. Yash" aria-required="false" aria-label="First Name">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="last_name" class="form-label">Last Name</label>
+                            <input type="text" class="form-control cf" id="last_name" name="last_name"
+                                placeholder="e.g. Prajapati" aria-required="false" aria-label="Last Name">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="gender" class="form-label">Gender</label>
+                            <select class="form-control" id="gender" name="gender" aria-required="false"
+                                aria-label="Gender">
+                                <option value="">Select Gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label for="blood_group" class="form-label">Blood Group</label>
+                            <select class="form-control" id="blood_group" name="blood_group" aria-required="false"
+                                aria-label="Blood Group">
+                                <option value="">Select Blood Group</option>
+                                <option value="A+">A+</option>
+                                <option value="A-">A-</option>
+                                <option value="B+">B+</option>
+                                <option value="B-">B-</option>
+                                <option value="AB+">AB+</option>
+                                <option value="AB-">AB-</option>
+                                <option value="O+">O+</option>
+                                <option value="O-">O-</option>
+                            </select>
+                        </div>
+                    </div>
+                    <hr>
+                    </hr>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="height" class="form-label">Height (cm)</label>
+                            <input type="number" inputmode="numeric" class="form-control" id="height" name="height"
+                                placeholder="e.g. 170" min="50" max="250" aria-required="false"
+                                aria-label="Height in cm">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="weight" class="form-label">Weight (kg)</label>
+                            <input type="number" inputmode="numeric" class="form-control" id="weight" name="weight"
+                                placeholder="e.g. 70" min="10" max="300" aria-required="false"
+                                aria-label="Weight in kg">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="birth_date" class="form-label">Birth Date</label>
+                            <input type="date" class="form-control" id="birth_date" name="birth_date"
+                                aria-required="false" aria-label="Birth Date">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" name="email"
+                                placeholder="e.g. abc@gmail.com" aria-required="false" aria-label="Email Address">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="mobile" class="form-label">Phone No.</label>
+                            <input type="tel" inputmode="numeric" class="form-control" id="mobile" name="mobile"
+                                pattern="[0-9]{10}" maxlength="10" minlength="10" placeholder="e.g. 9876543210"
+                                aria-required="false" aria-label="Phone Number">
+                        </div>
+                    </div>
+                </fieldset>
+
+                <hr>
+                </hr>
+
+                <!-- Emergency Contact Details -->
+                <fieldset>
+                    <legend>Emergency Contact</legend>
+                    <div class="mb-3">
+                        <label for="relation" class="form-label">Relation</label>
+                        <input type="text" id="relation" class="form-control cf" name="relation"
+                            placeholder="e.g. Friend" aria-required="false"
+                            aria-label="Relation with emergency contact">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="emergency_first_name" class="form-label">First Name</label>
+                            <input type="text" id="emergency_first_name" class="form-control cf"
+                                name="emergency_first_name" placeholder="e.g. Swaraj" aria-required="false"
+                                aria-label="Emergency contact first name">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="emergency_last_name" class="form-label">Last Name</label>
+                            <input type="text" id="emergency_last_name" class="form-control cf"
+                                name="emergency_last_name" placeholder="e.g. Mishra" aria-required="false"
+                                aria-label="Emergency contact last name">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="emergency_mobile" class="form-label">Mobile</label>
+                            <input type="tel" id="emergency_mobile" inputmode="numeric" class="form-control mobile"
+                                name="emergency_mobile" pattern="[0-9]{10}" maxlength="10" minlength="10"
+                                placeholder="e.g. 9876543210" aria-required="false"
+                                aria-label="Emergency contact mobile number">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="emergency_email" class="form-label">Email</label>
+                            <input type="email" id="emergency_email" class="form-control" name="emergency_email"
+                                placeholder="e.g. abc@gmail.com" aria-required="false"
+                                aria-label="Emergency contact email">
+                        </div>
+                    </div>
+                </fieldset>
+                <hr>
+                </hr>
+
+                <!-- Address Details -->
+                <fieldset>
+                    <legend>Address Details</legend>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="country" class="form-label">Country</label>
+                            <input type="text" id="country" class="form-control cf" name="country"
+                                placeholder="e.g. India" aria-required="false" aria-label="Country">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="state" class="form-label">State</label>
+                            <input type="text" id="state" class="form-control cf" name="state"
+                                placeholder="e.g. Maharashtra" aria-required="false" aria-label="State">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="city" class="form-label">City</label>
+                            <input type="text" id="city" class="form-control cf" name="city" placeholder="e.g. Pune"
+                                aria-required="false" aria-label="City">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="pincode" class="form-label">Pin Code</label>
+                            <input type="tel" id="pincode" inputmode="numeric" class="form-control mob" name="pincode"
+                                placeholder="e.g. 411038" pattern="[0-9]{6}" aria-required="false"
+                                aria-label="Pin Code">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="address" class="form-label">Address</label>
+                        <textarea id="address" class="form-control" name="address" rows="2"
+                            placeholder="e.g. Flat No. 9, Right Bhusari Colony, Kothrud" aria-required="false"
+                            aria-label="Full address"></textarea>
+                    </div>
+                </fieldset>
+                <hr>
+                </hr>
+
+
+                <!-- Medical Details -->
+                <fieldset>
+                    <legend id="medical-details">🏥 Medical Details</legend>
+
+                    <div class="row">
+                        <!-- Any Disease -->
+                        <div class="col-md-3 mb-3">
+                            <label for="any_disease" class="form-label">Any Disease</label>
+                            <select class="form-control" name="any_disease" id="any_disease"
+                                aria-labelledby="medical-details">
+                                <option value="no">No</option>
+                                <option value="yes">Yes</option>
+                            </select>
+                        </div>
+                        <div class="col-md-9 mb-3">
+                            <label for="disease" class="form-label">Specify</label>
+                            <input type="text" class="form-control" name="disease" id="disease"
+                                placeholder="e.g Diabetes, Asthma" readonly aria-labelledby="medical-details">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <!-- Any Allergies -->
+                        <div class="col-md-3 mb-3">
+                            <label for="any_allergies" class="form-label">Any Allergies</label>
+                            <select class="form-control" name="any_allergies" id="any_allergies"
+                                aria-labelledby="medical-details">
+                                <option value="no">No</option>
+                                <option value="yes">Yes</option>
+                            </select>
+                        </div>
+                        <div class="col-md-9 mb-3">
+                            <label for="allergies" class="form-label">Specify</label>
+                            <input type="text" class="form-control" name="allergies" id="allergies"
+                                placeholder="e.g Dust, Pets" readonly aria-labelledby="medical-details">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="medicalDoc" class="form-label">Document</label>
+                            <input type="file" class="form-control" id="medicalDoc" name="medical_doc"
+                                accept="application/pdf" aria-required="false">
+                            <div class="invalid-feedback">This field is required.</div>
+                        </div>
+
+                        <!-- Image Preview -->
+                        <div class="mb-3 docPreview">
+                            <label class="form-label">Document Preview:</label>
+                            <iframe id="docPreview" style="width:100%; height:500px;" frameborder="0"></iframe>
+                            <div class="file-error d-none">This field is required.</div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <!-- Doctor's Name -->
+                        <div class="col-md-6 mb-3">
+                            <label for="doc_name" class="form-label">Doctor's Name</label>
+                            <input type="text" class="form-control cf" name="doc_name" id="doc_name"
+                                placeholder="e.g Dr. Mishra" aria-labelledby="medical-details">
+                        </div>
+
+                        <!-- Doctor's Mobile -->
+                        <div class="col-md-6 mb-3">
+                            <label for="doc_phone" class="form-label">Doctor's Mobile</label>
+                            <input type="tel" inputmode="numeric" class="form-control mob" name="doc_phone"
+                                id="doc_phone" placeholder="9876543210" pattern="[0-9]{10}" maxlength="10"
+                                minlength="10" aria-labelledby="medical-details">
+                        </div>
+                    </div>
+
+                    <!-- Prescription -->
+                    <div class="mb-3">
+                        <label for="prescription" class="form-label">Prescription, Any other Medical Details</label>
+                        <textarea class="form-control" name="prescription" id="prescription"
+                            placeholder="e.g Names of Medicine, etc" rows="3"
+                            aria-labelledby="medical-details"></textarea>
+                    </div>
+                </fieldset>
+
+                <hr>
+                </hr>
+
+                <!-- Emergency Message -->
+                <fieldset>
+                    <legend id="emergency-message">🚨 Emergency Message</legend>
+
+                    <div class="mb-3">
+                        <label for="important-notes" class="form-label">
+                            Important Notes <span class="visually-hidden">(required)</span>
+                        </label>
+                        <textarea class="form-control" name="important_notes" id="important-notes" rows="3"
+                            aria-labelledby="emergency-message" aria-required="false"
+                            aria-describedby="emergency-instructions">Please help me in need or accident. Contact my emergency contact or dial 100.
+                    </textarea>
+                        <small id="emergency-instructions" class="form-text text-muted">
+                            Ensure this message provides clear emergency guidance.
+                        </small>
+                    </div>
+                </fieldset>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn-submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Include Footer -->
+    <div id="footer"></div>
+
+    <!-- ALL Main SCRIPTS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/check_session.js"></script>
+
+    <script src="./assets/js/entry.js"></script>
+
+</body>
+
+</html>
