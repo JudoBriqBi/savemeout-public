@@ -5,7 +5,7 @@ $(document).ready(function () {
     });
 
     $("#buyTagBtn").click(function () {
-        window.location.href = "buy_tag.html"; // Redirect to buy tags
+        window.location.href = "https://savemeout.com/en/"; // Redirect to buy tags
     });
 
     $(".recordsContainer").on("click", ".viewLink", function () {
