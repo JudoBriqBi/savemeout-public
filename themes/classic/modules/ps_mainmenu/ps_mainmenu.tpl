@@ -29,6 +29,13 @@
               {/if}
             </li>
         {/foreach}
+
+        {* Static Read Module Navigation Item *}
+        <li class="category" id="read-module">
+          <a class="dropdown-item" href="https://savemeout.com/read/" data-depth="0" target="_blank">
+            Read Module
+          </a>
+        </li>
       </ul>
     {/if}
 {/function}
