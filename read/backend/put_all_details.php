@@ -121,7 +121,7 @@ try {
         $stmt->execute();
         // var_dump($stmt->debugDumpParams());
 
-        $result = $stmt->fetch(mode: PDO::FETCH_ASSOC);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
         $stmt->closeCursor();
         if (!$result || !isset($result["new_data_id"]) || !isset($result["tag_id"])) {
             throw new Exception("User insertion failed");
@@ -134,12 +134,12 @@ try {
         // medical_info
         $uploadDir = "docs/";
         if (isset($_FILES["medical_doc"]) && $_FILES["medical_doc"]["error"] == 0) {
-            if (!is_dir(filename: $uploadDir)) {
+            if (!is_dir($uploadDir)) {
                 mkdir($uploadDir, 0777, true); // Ensure directory exists
             }
             // Delete old doc if it exists
             if ($oldDoc && file_exists(__DIR__ . "/" . $oldDoc)) {
-                unlink(filename: __DIR__ . "/" . $oldDoc);
+                unlink(__DIR__ . "/" . $oldDoc);
             }
             // Generate new file name
             $fileExtension = pathinfo($_FILES["medical_doc"]["name"], PATHINFO_EXTENSION);
@@ -148,11 +148,11 @@ try {
             $fullPath = __DIR__ . "/" . $docPath;
 
             if (!move_uploaded_file($_FILES["medical_doc"]["tmp_name"], $docPath)) {
-                throw new Exception(message: "Failed to upload document");
+                throw new Exception("Failed to upload document");
             }
         } else {
             // No new file uploaded, rename the old image if it exists
-            if ($oldDoc && file_exists(filename: __DIR__ . "/" . $oldDoc)) {
+            if ($oldDoc && file_exists(__DIR__ . "/" . $oldDoc)) {
                 $oldExtension = pathinfo($oldDoc, PATHINFO_EXTENSION);
                 $newFileName = "user_" . $newUserId . "." . $oldExtension;
                 $newDocPath = $uploadDir . $newFileName;
@@ -167,8 +167,8 @@ try {
         }
         // Update user image path in the database
         $updateQuery = "UPDATE medical_info SET doc_path = :doc_path WHERE user_data_id = :user_data_id";
-        $updateStmt = $db->prepare(query: $updateQuery);
-        $updateStmt->bindParam(":doc_path", var: $docPath);
+        $updateStmt = $db->prepare($updateQuery);
+        $updateStmt->bindParam(":doc_path", $docPath);
         $updateStmt->bindParam(":user_data_id", $newUserId);
         $updateStmt->execute();
 
@@ -177,12 +177,12 @@ try {
         // Handle file upload
         $uploadDir = "images/";
         if (isset($_FILES["user_image"]) && $_FILES["user_image"]["error"] == 0) {
-            if (!is_dir(filename: $uploadDir)) {
+            if (!is_dir($uploadDir)) {
                 mkdir($uploadDir, 0777, true); // Ensure directory exists
             }
             // Delete old image if it exists
             if ($oldImage && file_exists(__DIR__ . "/" . $oldImage)) {
-                unlink(filename: __DIR__ . "/" . $oldImage);
+                unlink(__DIR__ . "/" . $oldImage);
             }
 
             // Generate new file name
@@ -192,12 +192,12 @@ try {
             $fullPath = __DIR__ . "/" . $imagePath;
 
             if (!move_uploaded_file($_FILES["user_image"]["tmp_name"], $imagePath)) {
-                throw new Exception(message: "Failed to upload image");
+                throw new Exception("Failed to upload image");
             }
 
         } else {
             // No new file uploaded, rename the old image if it exists
-            if ($oldImage && file_exists(filename: __DIR__ . "/" . $oldImage)) {
+            if ($oldImage && file_exists(__DIR__ . "/" . $oldImage)) {
                 $oldExtension = pathinfo($oldImage, PATHINFO_EXTENSION);
                 $newFileName = "user_" . $newUserId . "." . $oldExtension;
                 $newImagePath = $uploadDir . $newFileName;
@@ -213,7 +213,7 @@ try {
 
         // Update user image path in the database
         $updateQuery = "UPDATE user_images SET image_path = :image_path WHERE user_data_id = :user_data_id";
-        $updateStmt = $db->prepare(query: $updateQuery);
+        $updateStmt = $db->prepare($updateQuery);
         $updateStmt->bindParam(":image_path", $imagePath);
         $updateStmt->bindParam(":user_data_id", $newUserId);
         $updateStmt->execute();

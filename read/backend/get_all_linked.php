@@ -30,8 +30,8 @@ try {
                 WHERE tl.user_id = ?";
 
     // Prepare and execute the query
-    $stmt = $db->prepare(query: $query);
-    $stmt->execute(params: [$user_id]);
+    $stmt = $db->prepare($query);
+    $stmt->execute([$user_id]);
 
     $tags_data = [];
 
@@ -42,7 +42,7 @@ try {
 
     // Prepare the response to match DataTables expected format
     $response = [
-        "success" => "success",  // Draw counter (helps with pagination and sorting)
+        "success" => true,  // Changed to boolean
         "recordsTotal" => count($tags_data),  // Total number of records
         "data" => $tags_data  // The actual data
     ];

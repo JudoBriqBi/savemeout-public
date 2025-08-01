@@ -16,7 +16,7 @@ if (!isset($_SESSION['user_id'])) {
     exit;
 }
 
-$user_id = intval(value: $_SESSION['user_id']);
+$user_id = intval($_SESSION['user_id']);
 // $user_id = 1;
 $tagid = isset($_GET['tagid']) ? trim($_GET['tagid']) : '';
 $tagpin = isset($_GET['tagpin']) ? trim($_GET['tagpin']) : '';
