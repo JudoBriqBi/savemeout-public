@@ -28,7 +28,7 @@ try {
     $stmt->execute([$tag_id, $user_id]);
 
     if ($stmt->rowCount() > 0) {
-        echo json_encode(value: ["success" => "true", "message" => "Tag linked to user"]);
+        echo json_encode(["success" => "true", "message" => "Tag linked to user"]);
     } else {
         echo json_encode(["success" => "false", "message" => "Tag not linked to user"]);
     }
